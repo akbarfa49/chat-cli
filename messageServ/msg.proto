@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "msgrpc/messageServ";
+
+
+package messageServ;
+
+service MessageService{
+
+    rpc OpenMessageChannel(stream MessageRequest) returns (stream MessageResponse){}
+
+}
+
+
+message MessageRequest {
+    string name = 1;
+    string message = 2;
+    string room = 3;
+}
+
+message MessageResponse{
+    string name =1;
+    string message = 2;
+    //string room = 3;
+}
